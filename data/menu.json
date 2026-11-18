@@ -1,0 +1,22 @@
+{
+  "banner": "",
+  "menu": [
+    {
+      "category": { "en": "Burgers", "am": "በርገር" },
+      "emoji": "🍔",
+      "items": [
+        { "name": { "en": "Classic Cheeseburger", "am": "ክላሲክ ቺዝ በርገር" }, "price": "600.00", "description": { "en": "A juicy beef patty with melted cheddar cheese, lettuce, tomato, onions, pickles, ketchup, and mustard on a sesame bun.", "am": "ጣፋጭ የበሬ ስጋ ከቀለጠ ቺዝ፣ ሰላጣ፣ ቲማቲም፣ ሽንኩርት፣ ኮሽሪ እና ማዮኔዝ ጋር በሰሳሚ ዳቦ የቀረበ።" }, "allergies": ["🌾", "🥛", "🥜"] },
+        { "name": { "en": "BBQ Beef Burger", "am": "ቢቢኪው የበሬ በርገር" }, "price": "900.00", "description": { "en": "A savory beef patty with smoky BBQ sauce, crispy onion rings, cheddar cheese, lettuce, and tomato on a toasted sesame bun.", "am": "ጣዕም ያለው የበሬ ስጋ ከቢቢኪው ሶስ፣ ክሪስፒ የሽንኩርት ቀለበት፣ ቺዝ እና ሰላጣ ጋር።" }, "allergies": ["🌾", "🥛", "🥜"] },
+        { "name": { "en": "Classic Grilled Chicken Burger", "am": "ክላሲክ ግሪልድ ዶሮ በርገር" }, "price": "800.00", "description": { "en": "A tender grilled chicken breast, topped with lettuce, tomato, pickles, and mayo, served on a sesame bun.", "am": "ለስላሳ የተጠበሰ የዶሮ ጡት ከሰላጣ፣ ቲማቲም፣ ኮሽሪ እና ማዮኔዝ ጋር።" }, "allergies": ["🌾", "🥛", "🥜"] }
+      ]
+    },
+    {
+      "category": { "en": "Pizza", "am": "ፒዛ" },
+      "emoji": "🍕",
+      "items": [
+        { "name": { "en": "Margherita Pizza", "am": "ማርጋሪታ ፒዛ" }, "price": "650.00", "description": { "en": "A classic Italian pizza with tomato sauce, fresh mozzarella, basil leaves, and a drizzle of olive oil.", "am": "ክላሲክ የጣሊያን ፒዛ በቲማቲም ሶስ፣ ትኩስ ሞዛሬላ፣ ባሲል እና የወይራ ዘይት።" }, "allergies": ["🌾", "🥛"] },
+        { "name": { "en": "BBQ Chicken Pizza", "am": "ቢቢኪው ዶሮ ፒዛ" }, "price": "700.00", "description": { "en": "Grilled chicken pieces smothered in smoky BBQ sauce, with red onions, mozzarella, and cilantro on a tomato base.", "am": "የተጠበሰ የዶሮ ስጋ በቢቢኪው ሶስ፣ ቀይ ሽንኩርት፣ ሞዛሬላ እና ኮረሪማ በቲማቲም መሰረት።" }, "allergies": ["🌾", "🥛"] }
+      ]
+    }
+  ]
+}

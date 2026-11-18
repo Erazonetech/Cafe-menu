@@ -1,0 +1,194 @@
+[
+  {
+    "id": "forest",
+    "name": "Forest",
+    "light": {
+      "bg": "#f3f1ec",
+      "surface": "#ffffff",
+      "ink": "#1d1a17",
+      "muted": "#6b645c",
+      "line": "#dcd7cd",
+      "accent": "#1f4d3a",
+      "accentInk": "#ffffff",
+      "chip": "#e7e3da"
+    },
+    "dark": {
+      "bg": "#15130f",
+      "surface": "#201d18",
+      "ink": "#f1ede4",
+      "muted": "#a39b8f",
+      "line": "#38332b",
+      "accent": "#7fcfa6",
+      "accentInk": "#0f1a14",
+      "chip": "#2b2721"
+    }
+  },
+  {
+    "id": "espresso",
+    "name": "Espresso",
+    "light": {
+      "bg": "#f8f5f0",
+      "surface": "#ffffff",
+      "ink": "#2c221e",
+      "muted": "#7a6b63",
+      "line": "#e3dbd4",
+      "accent": "#78350f",
+      "accentInk": "#ffffff",
+      "chip": "#eee6de"
+    },
+    "dark": {
+      "bg": "#171412",
+      "surface": "#231f1c",
+      "ink": "#f5eee8",
+      "muted": "#a89b91",
+      "line": "#3c3530",
+      "accent": "#d97706",
+      "accentInk": "#171412",
+      "chip": "#2b2622"
+    }
+  },
+  {
+    "id": "ocean",
+    "name": "Ocean",
+    "light": {
+      "bg": "#f0f4f8",
+      "surface": "#ffffff",
+      "ink": "#15232d",
+      "muted": "#5b6d7a",
+      "line": "#d1dce5",
+      "accent": "#0369a1",
+      "accentInk": "#ffffff",
+      "chip": "#e1e9f0"
+    },
+    "dark": {
+      "bg": "#0c151c",
+      "surface": "#14212c",
+      "ink": "#eaf2f8",
+      "muted": "#8ca0b0",
+      "line": "#233748",
+      "accent": "#38bdf8",
+      "accentInk": "#082f49",
+      "chip": "#1e3142"
+    }
+  },
+  {
+    "id": "terracotta",
+    "name": "Terracotta",
+    "light": {
+      "bg": "#faf5f0",
+      "surface": "#ffffff",
+      "ink": "#2b1c18",
+      "muted": "#7d6660",
+      "line": "#e6dad4",
+      "accent": "#c2410c",
+      "accentInk": "#ffffff",
+      "chip": "#f0e3db"
+    },
+    "dark": {
+      "bg": "#1a120f",
+      "surface": "#261c18",
+      "ink": "#f8ede7",
+      "muted": "#ad958d",
+      "line": "#42312b",
+      "accent": "#fb923c",
+      "accentInk": "#431407",
+      "chip": "#31231e"
+    }
+  },
+  {
+    "id": "berry",
+    "name": "Berry",
+    "light": {
+      "bg": "#faf4f6",
+      "surface": "#ffffff",
+      "ink": "#281721",
+      "muted": "#7b5f70",
+      "line": "#e6d7df",
+      "accent": "#9d174d",
+      "accentInk": "#ffffff",
+      "chip": "#efe1e8"
+    },
+    "dark": {
+      "bg": "#180d14",
+      "surface": "#251520",
+      "ink": "#f8edf3",
+      "muted": "#b093a3",
+      "line": "#412638",
+      "accent": "#f472b6",
+      "accentInk": "#500724",
+      "chip": "#311c2a"
+    }
+  },
+  {
+    "id": "mono",
+    "name": "Mono",
+    "light": {
+      "bg": "#f5f5f5",
+      "surface": "#ffffff",
+      "ink": "#111111",
+      "muted": "#666666",
+      "line": "#dcdcdc",
+      "accent": "#111111",
+      "accentInk": "#ffffff",
+      "chip": "#e8e8e8"
+    },
+    "dark": {
+      "bg": "#121212",
+      "surface": "#1e1e1e",
+      "ink": "#f5f5f5",
+      "muted": "#999999",
+      "line": "#333333",
+      "accent": "#f5f5f5",
+      "accentInk": "#111111",
+      "chip": "#2a2a2a"
+    }
+  },
+  {
+    "id": "sunset",
+    "name": "Sunset",
+    "light": {
+      "bg": "#fbf6f0",
+      "surface": "#ffffff",
+      "ink": "#2d1a10",
+      "muted": "#806657",
+      "line": "#e8dbd0",
+      "accent": "#ea580c",
+      "accentInk": "#ffffff",
+      "chip": "#f2e4d8"
+    },
+    "dark": {
+      "bg": "#1a110a",
+      "surface": "#271b12",
+      "ink": "#faeee4",
+      "muted": "#b29786",
+      "line": "#422e20",
+      "accent": "#fdba74",
+      "accentInk": "#431407",
+      "chip": "#332317"
+    }
+  },
+  {
+    "id": "sage",
+    "name": "Sage",
+    "light": {
+      "bg": "#f3f5f2",
+      "surface": "#ffffff",
+      "ink": "#1c251e",
+      "muted": "#627265",
+      "line": "#d5ded7",
+      "accent": "#2e6f40",
+      "accentInk": "#ffffff",
+      "chip": "#e1e8e3"
+    },
+    "dark": {
+      "bg": "#111712",
+      "surface": "#1a231c",
+      "ink": "#ecf2ee",
+      "muted": "#8fa293",
+      "line": "#2c3b2f",
+      "accent": "#86efac",
+      "accentInk": "#052e16",
+      "chip": "#233026"
+    }
+  }
+]

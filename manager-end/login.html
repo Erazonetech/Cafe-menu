@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manager Sign In · Cafe Fleet Platform</title>
+    <link rel="stylesheet" href="/manager/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,600..800;1,9..144,600&family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      .login-container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .login-box {
+        width: 100%;
+        max-width: 440px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 40px 32px;
+        box-shadow: var(--shadow-lg);
+        position: relative;
+      }
+      .login-header {
+        text-align: center;
+        margin-bottom: 28px;
+      }
+      .login-header .badge {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        background: var(--accent);
+        color: var(--accent-ink);
+        padding: 4px 10px;
+        border-radius: var(--radius-sm);
+        display: inline-block;
+        margin-bottom: 12px;
+      }
+      .login-header h2 {
+        font-family: "Fraunces", serif;
+        font-size: 26px;
+        font-weight: 800;
+        margin: 0 0 6px 0;
+      }
+      .login-header p {
+        font-size: 13px;
+        color: var(--muted);
+        margin: 0;
+      }
+      .login-error {
+        background: var(--danger-bg);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        color: var(--danger);
+        padding: 12px 14px;
+        border-radius: var(--radius-md);
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .login-success {
+        background: rgba(16, 185, 129, 0.12);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        color: #10b981;
+        padding: 12px 14px;
+        border-radius: var(--radius-md);
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .toggle-link {
+        font-size: 12px;
+        color: var(--muted);
+        text-decoration: none;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+        font-weight: 600;
+      }
+      .toggle-link:hover {
+        color: var(--accent);
+      }
+      .panel-switch-row {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: -6px;
+        margin-bottom: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-box">
+        <!-- Main Sign In View -->
+        <div id="signin-view">
+          <div class="login-header">
+            <span class="badge">PLATFORM MANAGER</span>
+            <h2>Manager Sign In</h2>
+            <p>Sign in to manage cafes, provision subdomains, and monitor traffic.</p>
+          </div>
+
+          <div id="success-banner" style="display: none;" class="login-success"></div>
+          <!-- LOGIN_ERROR -->
+
+          <form method="post" action="/api/manager/auth/login" class="modal-form">
+            <div class="form-group">
+              <label for="username">Manager Username</label>
+              <input type="text" id="username" name="username" required autofocus placeholder="Enter manager username" />
+            </div>
+
+            <div class="form-group" style="margin-bottom: 10px;">
+              <label for="password">Manager Password</label>
+              <input type="password" id="password" name="password" required placeholder="Enter password" />
+            </div>
+
+            <div class="panel-switch-row">
+              <button type="button" class="toggle-link" id="btn-show-forgot">Forgot Password?</button>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width: 100%; margin-top: 6px; padding: 13px;">
+              <span>Sign In to Platform Manager</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Forgot Password View -->
+        <div id="forgot-view" style="display: none;">
+          <div class="login-header">
+            <span class="badge">SECURITY RECOVERY</span>
+            <h2>Forgot Password</h2>
+            <p>Enter your manager email address to receive a secure, 10-minute reset link.</p>
+          </div>
+
+          <div id="forgot-alert" style="display: none;"></div>
+
+          <form id="forgot-form" class="modal-form">
+            <div class="form-group">
+              <label for="forgot-email">Manager Recovery Email</label>
+              <input type="email" id="forgot-email" required placeholder="manager@bambiscafe.com" />
+            </div>
+
+            <button type="submit" class="btn-primary" id="btn-send-reset" style="width: 100%; margin-top: 10px; padding: 13px;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <span>Send 10-Minute Reset Link</span>
+            </button>
+
+            <div style="text-align: center; margin-top: 18px;">
+              <button type="button" class="toggle-link" id="btn-show-signin" style="font-size: 13px;">← Back to Sign In</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+      try {
+        const stored = localStorage.getItem("manager-theme") || "dark";
+        document.documentElement.setAttribute("data-theme", stored);
+      } catch {}
+
+      const signinView = document.querySelector("#signin-view");
+      const forgotView = document.querySelector("#forgot-view");
+      const btnShowForgot = document.querySelector("#btn-show-forgot");
+      const btnShowSignin = document.querySelector("#btn-show-signin");
+      const forgotForm = document.querySelector("#forgot-form");
+      const forgotAlert = document.querySelector("#forgot-alert");
+      const btnSendReset = document.querySelector("#btn-send-reset");
+      const successBanner = document.querySelector("#success-banner");
+
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("reset") === "success") {
+        successBanner.style.display = "flex";
+        successBanner.textContent = "Password updated successfully! Please sign in with your new password.";
+      }
+
+      btnShowForgot?.addEventListener("click", () => {
+        signinView.style.display = "none";
+        forgotView.style.display = "block";
+        forgotAlert.style.display = "none";
+      });
+
+      btnShowSignin?.addEventListener("click", () => {
+        forgotView.style.display = "none";
+        signinView.style.display = "block";
+      });
+
+      forgotForm?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const email = document.querySelector("#forgot-email").value.trim();
+        if (!email) return;
+
+        btnSendReset.disabled = true;
+        btnSendReset.textContent = "Dispatching Reset Link...";
+        forgotAlert.style.display = "none";
+
+        try {
+          const res = await fetch("/api/manager/auth/forgot-password", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email })
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || "Failed sending reset link");
+
+          forgotAlert.style.display = "flex";
+          forgotAlert.className = "login-success";
+          forgotAlert.innerHTML = `<strong>Link Sent:</strong> ${data.message} <br/><small style="margin-top:4px;display:block;">Check system logs or activity feed if email transport is local.</small>`;
+          forgotForm.reset();
+        } catch (err) {
+          forgotAlert.style.display = "flex";
+          forgotAlert.className = "login-error";
+          forgotAlert.textContent = err.message;
+        } finally {
+          btnSendReset.disabled = false;
+          btnSendReset.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Send 10-Minute Reset Link</span>`;
+        }
+      });
+    </script>
+  </body>
+</html>

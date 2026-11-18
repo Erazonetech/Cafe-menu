@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bambis Cafe - Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,600..800;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <!-- Topbar Header -->
+      <header class="admin-topbar">
+        <div class="admin-branding">
+          <span class="admin-badge">ADMIN</span>
+          <h1 id="brand-header-title">Bambis Cafe</h1>
+        </div>
+
+        <nav class="admin-tabs" role="tablist">
+          <button type="button" class="tab-button active" data-tab="tab-menu" role="tab" aria-selected="true">
+            <svg class="tab-icon-svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            <span>Menu</span>
+          </button>
+          <button type="button" class="tab-button" data-tab="tab-reviews" role="tab" aria-selected="false">
+            <svg class="tab-icon-svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span>Reviews</span>
+          </button>
+          <button type="button" class="tab-button" data-tab="tab-appearance" role="tab" aria-selected="false">
+            <svg class="tab-icon-svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+            <span>Appearance & Info</span>
+          </button>
+          <button type="button" class="tab-button" data-tab="tab-account" role="tab" aria-selected="false">
+            <svg class="tab-icon-svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Security</span>
+          </button>
+        </nav>
+
+        <div class="admin-topbar-actions">
+          <!-- Admin Theme Segmented Toggler (Light / Dark) -->
+          <div class="admin-theme-switcher" role="group" aria-label="Admin Interface Theme">
+            <button type="button" class="admin-theme-pill active" data-theme-val="light" id="theme-pill-light" title="Switch to Light theme">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <span>Light</span>
+            </button>
+            <button type="button" class="admin-theme-pill" data-theme-val="dark" id="theme-pill-dark" title="Switch to Dark theme">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+              <span>Dark</span>
+            </button>
+          </div>
+
+          <!-- Customer Menu Link (with SVG external link) -->
+          <a class="view-store-link" id="view-store-link" href="/customer" target="_blank" rel="noreferrer" title="Navigate to customer website">
+            <span>Customer Menu</span>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+          <form method="post" action="/logout">
+            <button class="logout-btn" type="submit">Sign out</button>
+          </form>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <!-- TAB 1: MENU MANAGER -->
+        <section class="tab-panel active" id="tab-menu" role="tabpanel">
+          <div class="panel-header">
+            <div>
+              <h2>Menu Categories & Items</h2>
+              <p>Organize categories, manage multi-price variants, dishes, and availability.</p>
+            </div>
+            <div class="panel-actions">
+              <button type="button" class="btn-primary" id="btn-add-group">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>Add Category</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="group-list" id="group-list"></div>
+        </section>
+
+        <!-- TAB 2: REVIEWS MANAGER -->
+        <section class="tab-panel" id="tab-reviews" role="tabpanel" hidden>
+          <div class="panel-header">
+            <div>
+              <h2>Customer Reviews & Testimonials</h2>
+              <p>Review customer ratings and feedback, or moderate public visibility.</p>
+            </div>
+            <div class="reviews-stats-summary" id="reviews-stats-summary"></div>
+          </div>
+
+          <!-- Reviews Filter Bar -->
+          <div class="reviews-filter-bar">
+            <div class="reviews-rating-filters" id="reviews-rating-filters">
+              <button type="button" class="filter-pill active" data-rating-filter="all">All Reviews</button>
+              <button type="button" class="filter-pill" data-rating-filter="5">5 Stars</button>
+              <button type="button" class="filter-pill" data-rating-filter="4">4 Stars</button>
+              <button type="button" class="filter-pill" data-rating-filter="3">3 Stars</button>
+              <button type="button" class="filter-pill" data-rating-filter="2">2 Stars</button>
+              <button type="button" class="filter-pill" data-rating-filter="1">1 Star</button>
+            </div>
+          </div>
+
+          <div class="admin-reviews-list" id="admin-reviews-list"></div>
+        </section>
+
+        <!-- TAB 3: APPEARANCE & BRANDING & INFO -->
+        <section class="tab-panel" id="tab-appearance" role="tabpanel" hidden>
+          <div class="appearance-layout">
+            <div class="appearance-settings">
+              <div class="panel-header">
+                <div>
+                  <h2>Brand, Schedule & Visual Identity</h2>
+                  <p>Customize palettes, opening hours schedule, contacts, and hero photography.</p>
+                </div>
+                <button type="button" class="btn-primary" id="btn-save-appearance">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Save All Changes</span>
+                </button>
+              </div>
+
+              <!-- Brand Info -->
+              <div class="card-panel">
+                <h3>Brand Details</h3>
+                <div class="form-grid">
+                  <label>
+                    Brand Name
+                    <input type="text" id="cfg-brand-name" required />
+                  </label>
+                  <label>
+                    Currency Symbol
+                    <input type="text" id="cfg-currency" required placeholder="ETB" />
+                  </label>
+                </div>
+                <div class="form-grid">
+                  <label>
+                    Tagline
+                    <input type="text" id="cfg-tagline" placeholder="Artisanal flavors, crafted with passion." />
+                  </label>
+                  <label>
+                    Cuisine Concept
+                    <input type="text" id="cfg-cuisine" placeholder="AUTHENTIC ETHIOPIAN & CONTEMPORARY DINING" />
+                  </label>
+                </div>
+              </div>
+
+              <!-- Contacts & Location Info (Editable for Customer Side) -->
+              <div class="card-panel">
+                <h3>Contact & Location Information</h3>
+                <p>These contact details and address are displayed directly on the customer menu header and footer.</p>
+                <div class="form-grid">
+                  <label>
+                    Physical Address / Location
+                    <input type="text" id="cfg-address" placeholder="e.g. Bole Road, Behind Edna Mall, Addis Ababa" />
+                  </label>
+                  <label>
+                    Primary Contact Phone Number
+                    <input type="text" id="cfg-phone" placeholder="e.g. +251 99 320 6426" />
+                  </label>
+                </div>
+                <div class="form-grid">
+                  <label>
+                    WhatsApp Order Number (digits only with country code)
+                    <input type="text" id="cfg-whatsapp" placeholder="e.g. 251993206426" />
+                  </label>
+                  <label>
+                    Email Address
+                    <input type="email" id="cfg-email" placeholder="e.g. hello@bambiscafe.com" />
+                  </label>
+                </div>
+              </div>
+
+              <!-- Weekly Opening Hours with Time Picker -->
+              <div class="card-panel">
+                <div class="panel-heading">
+                  <div>
+                    <h3>Weekly Opening Hours & Schedule</h3>
+                    <p>Mark which days the cafe is open and choose open/close hours using time pickers.</p>
+                  </div>
+                  <div class="schedule-quick-actions">
+                    <button type="button" class="btn-small" id="btn-sched-standard">Set Standard (08:00 - 22:00)</button>
+                    <button type="button" class="btn-small" id="btn-sched-weekends">Set Weekend Extension</button>
+                  </div>
+                </div>
+
+                <div class="schedule-editor-grid" id="schedule-editor-grid"></div>
+
+                <div class="form-grid" style="margin-top: 14px;">
+                  <label>
+                    Formatted Schedule Summary Text (Auto-generated or custom)
+                    <input type="text" id="cfg-hours" placeholder="Mon - Sun | 8:00 AM - 10:00 PM" />
+                  </label>
+                  <label>
+                    Cafe Location Timezone (for live "Open Now" tag)
+                    <select id="cfg-timezone">
+                      <option value="Africa/Addis_Ababa">Africa/Addis_Ababa (East Africa Time · UTC+3)</option>
+                      <option value="Africa/Nairobi">Africa/Nairobi (East Africa Time · UTC+3)</option>
+                      <option value="Africa/Cairo">Africa/Cairo (Eastern European Time · UTC+2)</option>
+                      <option value="Asia/Dubai">Asia/Dubai (Gulf Standard Time · UTC+4)</option>
+                      <option value="Europe/London">Europe/London (GMT / BST)</option>
+                      <option value="Europe/Paris">Europe/Paris (Central European Time)</option>
+                      <option value="America/New_York">America/New_York (Eastern Time)</option>
+                      <option value="America/Chicago">America/Chicago (Central Time)</option>
+                      <option value="America/Los_Angeles">America/Los_Angeles (Pacific Time)</option>
+                      <option value="Asia/Tokyo">Asia/Tokyo (Japan Standard Time · UTC+9)</option>
+                      <option value="UTC">UTC (Coordinated Universal Time)</option>
+                    </select>
+                    <small id="tz-live-hint" style="color: var(--muted); font-size: 11px; margin-top: 3px; display: block;">Current time: Loading...</small>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Hero Banner Upload & Removal -->
+              <div class="card-panel">
+                <div class="panel-heading">
+                  <div>
+                    <h3>Hero Promotional Banner</h3>
+                    <p>Header photo displayed above the customer menu.</p>
+                  </div>
+                  <div class="banner-action-buttons">
+                    <label class="btn-secondary" for="banner-file-input">Upload Banner</label>
+                    <input id="banner-file-input" type="file" accept="image/*" hidden />
+                    <button type="button" class="btn-danger" id="btn-remove-banner" style="margin-left: 8px;">Remove Banner</button>
+                  </div>
+                </div>
+                <div class="banner-preview" id="banner-preview"></div>
+              </div>
+
+              <!-- Cafe Story & Description (Markdown Editor) -->
+              <div class="card-panel">
+                <div class="panel-heading">
+                  <div>
+                    <h3>Cafe Story & Description (Markdown Editor)</h3>
+                    <p>Craft your cafe's story, history, and specialty coffee philosophy using Markdown. This formatted text renders on your customer-facing About page.</p>
+                  </div>
+                  <div class="md-mode-switch" role="tablist" aria-label="Editor view mode">
+                    <button type="button" class="mode-pill active" id="btn-md-visual" role="tab" aria-selected="true" title="In-Place Rendered Editor">
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                      <span>Rendered Editor</span>
+                    </button>
+                    <button type="button" class="mode-pill" id="btn-md-raw" role="tab" aria-selected="false" title="Markdown Source Text">
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                      <span>Markdown Source</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="markdown-toolbar" id="markdown-toolbar">
+                  <div class="toolbar-actions-row">
+                    <div class="toolbar-group">
+                      <button type="button" class="md-tool-btn" id="md-tool-bold" title="Bold (Ctrl+B / **text**)" aria-label="Bold">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h8a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/><path d="M6 12h9a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/></svg>
+                      </button>
+                      <button type="button" class="md-tool-btn" id="md-tool-italic" title="Italic (Ctrl+I / *text*)" aria-label="Italic">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="4" x2="10" y2="4"/><line x1="14" y1="20" x2="5" y2="20"/><line x1="15" y1="4" x2="9" y2="20"/></svg>
+                      </button>
+                    </div>
+                    <div class="toolbar-separator" aria-hidden="true"></div>
+                    <div class="toolbar-group">
+                      <button type="button" class="md-tool-btn" id="md-tool-h2" title="Heading 2 (## Heading)" aria-label="Heading 2">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6v12M14 6v12M4 12h10M18 18h4c0-2-1-3-2-4s2-2 2-4-2-4-4-4"/></svg>
+                      </button>
+                      <button type="button" class="md-tool-btn" id="md-tool-h3" title="Heading 3 (### Heading)" aria-label="Heading 3">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6v12M14 6v12M4 12h10M18 8a2 2 0 0 1 2-2h2v4h-2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-4"/></svg>
+                      </button>
+                    </div>
+                    <div class="toolbar-separator" aria-hidden="true"></div>
+                    <div class="toolbar-group">
+                      <button type="button" class="md-tool-btn" id="md-tool-quote" title="Quote (> quote)" aria-label="Quote">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21c3 0 7-1 7-8V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2 0 4-1 6-2 8zM15 21c3 0 7-1 7-8V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2 0 4-1 6-2 8z"/></svg>
+                      </button>
+                      <button type="button" class="md-tool-btn" id="md-tool-ul" title="Bullet List (- item)" aria-label="Bullet list">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                      </button>
+                      <button type="button" class="md-tool-btn" id="md-tool-ol" title="Numbered List (1. item)" aria-label="Numbered list">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="10" y1="6" x2="21" y2="6"/><line x1="10" y1="12" x2="21" y2="12"/><line x1="10" y1="18" x2="21" y2="18"/><path d="M4 6h1v4M4 14h2.5c.8 0 1.5.7 1.5 1.5S7.3 17 6.5 17H4v3h4"/></svg>
+                      </button>
+                      <button type="button" class="md-tool-btn" id="md-tool-link" title="Insert Link ([text](url))" aria-label="Insert Link">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                      </button>
+                      <button type="button" class="md-tool-btn" id="md-tool-image" title="Insert Image & Wrap Text" aria-label="Insert Image">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="toolbar-stats-side">
+                    <span class="md-stats-badge" id="md-stats-badge">0 words · 0 chars</span>
+                  </div>
+                </div>
+
+                <div class="markdown-single-editor-container" id="md-editor-container">
+                  <!-- In-Place Rendered Contenteditable Editor -->
+                  <div
+                    id="cfg-about-editor"
+                    class="markdown-rich-editor"
+                    contenteditable="true"
+                    role="textbox"
+                    aria-multiline="true"
+                    spellcheck="true"
+                    data-placeholder="Start writing here... Headings (#, ##), bold (**text**), quotes (>), and lists render directly inside this editor in real time."
+                  ></div>
+
+                  <!-- Raw Markdown Textarea (switches in-place when requested) -->
+                  <textarea id="cfg-about-markdown" rows="15" class="markdown-editor-textarea" placeholder="Write about your cafe, philosophy, beans, craft, and history using Markdown..." hidden></textarea>
+                </div>
+
+                <div class="markdown-editor-footer">
+                  <span class="md-help-note">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    Supports # Headings, **bold**, *italic*, > quotes, lists, and links. Renders on the customer About page.
+                  </span>
+                  <a href="/about" target="_blank" class="btn-preview-about-link" id="btn-preview-about-link">
+                    <span>View Customer About Page</span>
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Palette Presets -->
+              <div class="card-panel">
+                <div class="panel-heading">
+                  <div>
+                    <h3>Color Palette</h3>
+                    <p>Select from 8 WCAG AA contrast-tested presets or customize colors.</p>
+                  </div>
+                  <div class="theme-mode-switch">
+                    <button type="button" class="mode-pill active" id="preview-mode-light">Light Mode</button>
+                    <button type="button" class="mode-pill" id="preview-mode-dark">Dark Mode</button>
+                  </div>
+                </div>
+
+                <div class="palettes-grid" id="palettes-grid"></div>
+
+                <div class="custom-colors-box">
+                  <h4>Custom Color Overrides</h4>
+                  <div class="colors-row">
+                    <label class="color-picker-label">
+                      <span>Accent Color</span>
+                      <input type="color" id="color-accent" value="#d97706" />
+                    </label>
+                    <label class="color-picker-label">
+                      <span>Background</span>
+                      <input type="color" id="color-bg" value="#faf7f2" />
+                    </label>
+                    <label class="color-picker-label">
+                      <span>Card Surface</span>
+                      <input type="color" id="color-surface" value="#ffffff" />
+                    </label>
+                    <label class="color-picker-label">
+                      <span>Ink (Text)</span>
+                      <input type="color" id="color-ink" value="#1d1a17" />
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Typography Pairings -->
+              <div class="card-panel">
+                <h3>Font Pairing</h3>
+                <p>Choose an editorial typography pairing with fallbacks.</p>
+                <div class="form-grid">
+                  <label>
+                    Font Pair
+                    <select id="cfg-font-pair">
+                      <option value="Bricolage Grotesque / Figtree">Bricolage Grotesque / Figtree (Modern Bistro)</option>
+                      <option value="Fraunces / Plus Jakarta Sans" selected>Fraunces / Plus Jakarta Sans (Artisanal Luxury)</option>
+                      <option value="Playfair Display / DM Sans">Playfair Display / DM Sans (Editorial Classic)</option>
+                      <option value="Syne / Inter">Syne / Inter (Contemporary Craft)</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Phone Preview Frame -->
+            <div class="preview-panel">
+              <div class="phone-frame-container">
+                <div class="phone-frame-header">
+                  <div class="phone-speaker"></div>
+                  <div class="phone-title">Live Preview</div>
+                  <button type="button" class="phone-reload" id="reload-preview" title="Refresh preview">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                  </button>
+                </div>
+                <iframe id="customer-preview-iframe" src="/customer" title="Customer Preview"></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 4: SECURITY & PASSWORD (Requires Old Password) -->
+        <section class="tab-panel" id="tab-account" role="tabpanel" hidden>
+          <div class="panel-header">
+            <div>
+              <h2>Admin Security & Credentials</h2>
+              <p>Update administrator password and maintain protected system access.</p>
+            </div>
+          </div>
+          <div class="card-panel" style="max-width: 520px;">
+            <h3>Change Password</h3>
+            <p style="margin-bottom: 16px; color: var(--muted); font-size: 13px;">
+              You must provide your current password to authorize any credential changes.
+            </p>
+            <form id="password-form">
+              <label>
+                Current / Old Password
+                <input type="password" id="old-password" required placeholder="Enter current password" />
+              </label>
+              <label>
+                New Password (minimum 12 characters)
+                <input type="password" id="new-password" required minlength="12" placeholder="Enter new strong password" />
+              </label>
+              <label>
+                Confirm New Password
+                <input type="password" id="confirm-password" required minlength="12" placeholder="Re-enter new password" />
+              </label>
+              <button type="submit" class="btn-primary" style="margin-top: 14px;">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>Update Password</span>
+              </button>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ITEM EDITOR MODAL -->
+    <div class="modal-backdrop" id="item-modal-backdrop" hidden></div>
+    <section class="editor-modal" id="item-editor-modal" role="dialog" aria-modal="true" aria-labelledby="item-modal-title" hidden>
+      <div class="modal-header">
+        <div>
+          <span class="modal-tag">MENU ITEM</span>
+          <h3 id="item-modal-title">Add Dish</h3>
+        </div>
+        <button type="button" class="modal-close" id="close-item-modal">✕</button>
+      </div>
+
+      <form id="item-editor-form">
+        <input type="hidden" id="edit-item-id" />
+
+        <div class="form-grid">
+          <label>
+            Category
+            <select id="item-group-select" required></select>
+          </label>
+          <label>
+            Badge / Highlight
+            <input type="text" id="item-badge" placeholder="e.g. Popular, Veg, Chef's Special" maxlength="20" />
+          </label>
+        </div>
+
+        <div class="form-grid">
+          <label>
+            English Name
+            <input type="text" id="item-name-en" required maxlength="80" />
+          </label>
+          <label>
+            Amharic Name
+            <input type="text" id="item-name-am" maxlength="80" />
+          </label>
+        </div>
+
+        <div class="form-grid">
+          <label>
+            English Description
+            <textarea id="item-desc-en" maxlength="300" rows="3"></textarea>
+          </label>
+          <label>
+            Amharic Description
+            <textarea id="item-desc-am" maxlength="300" rows="3"></textarea>
+          </label>
+        </div>
+
+        <!-- Prices Section (Repeatable Rows) -->
+        <div class="prices-section">
+          <div class="section-label-row">
+            <strong>Prices & Portion Sizes</strong>
+            <button type="button" class="btn-small" id="btn-add-price">＋ Add Size</button>
+          </div>
+          <div class="price-rows" id="price-rows-container"></div>
+        </div>
+
+        <!-- Image & Placeholder Section -->
+        <div class="form-grid">
+          <label>
+            Upload Food Photo
+            <input type="file" id="item-image-file" accept="image/*" />
+          </label>
+          <label>
+            Or Fallback Vector Artwork
+            <select id="item-placeholder-kind">
+              <option value="plate">Plate & Cloche</option>
+              <option value="burger">Artisanal Burger</option>
+              <option value="pizza">Pizza Slice</option>
+              <option value="espresso">Espresso Cup</option>
+              <option value="iced">Iced Beverage</option>
+              <option value="pastry">Bakery / Croissant</option>
+              <option value="traditional">Traditional Injera Dish</option>
+            </select>
+          </label>
+        </div>
+        <div class="image-thumb-preview" id="item-thumb-preview"></div>
+
+        <!-- Allergens -->
+        <div class="form-grid">
+          <label>
+            Allergens / Dietary Tags (comma-separated)
+            <input type="text" id="item-allergies-input" placeholder="e.g. Gluten, Dairy, Nuts" />
+          </label>
+          <div class="toggles-row">
+            <label class="checkbox-label">
+              <input type="checkbox" id="item-is-available" checked />
+              <span>Available for ordering</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="item-is-visible" checked />
+              <span>Visible on menu</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-danger" id="btn-delete-item">Delete</button>
+          <button type="button" class="btn-secondary" id="btn-duplicate-item">Duplicate</button>
+          <div style="flex: 1;"></div>
+          <button type="button" class="btn-secondary" id="btn-cancel-item">Cancel</button>
+          <button type="submit" class="btn-primary">Save Item</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- GROUP EDITOR MODAL -->
+    <div class="modal-backdrop" id="group-modal-backdrop" hidden></div>
+    <section class="editor-modal" id="group-editor-modal" role="dialog" aria-modal="true" aria-labelledby="group-modal-title" hidden>
+      <div class="modal-header">
+        <div>
+          <span class="modal-tag">CATEGORY</span>
+          <h3 id="group-modal-title">Edit Category</h3>
+        </div>
+        <button type="button" class="modal-close" id="close-group-modal">✕</button>
+      </div>
+
+      <form id="group-editor-form">
+        <input type="hidden" id="edit-group-id" />
+        <div class="form-grid">
+          <label>
+            English Name
+            <input type="text" id="group-name-en" required maxlength="60" />
+          </label>
+          <label>
+            Amharic Name
+            <input type="text" id="group-name-am" maxlength="60" />
+          </label>
+        </div>
+        <div class="form-grid">
+          <label>
+            English Note / Description
+            <input type="text" id="group-note-en" maxlength="150" placeholder="e.g. Double shot by default" />
+          </label>
+          <label>
+            Amharic Note
+            <input type="text" id="group-note-am" maxlength="150" />
+          </label>
+        </div>
+        <div class="form-grid">
+          <label>
+            Category Icon Vector Preset
+            <select id="group-emoji">
+              <option value="burger">Burger</option>
+              <option value="pizza">Pizza</option>
+              <option value="coffee">Coffee & Espresso</option>
+              <option value="drinks">Drinks & Iced Beverages</option>
+              <option value="pastry">Pastry & Desserts</option>
+              <option value="traditional">Traditional Meals</option>
+              <option value="plate" selected>Plate & Dining</option>
+            </select>
+          </label>
+          <div class="toggles-row" style="align-items: center;">
+            <label class="checkbox-label">
+              <input type="checkbox" id="group-is-visible" checked />
+              <span>Visible on menu</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-danger" id="btn-delete-group">Delete Category</button>
+          <div style="flex: 1;"></div>
+          <button type="button" class="btn-secondary" id="btn-cancel-group">Cancel</button>
+          <button type="submit" class="btn-primary">Save Category</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Insert Markdown Image & Text Wrap Modal -->
+    <div class="modal-backdrop" id="md-image-modal-backdrop" hidden></div>
+    <section class="editor-modal" id="md-image-modal" role="dialog" aria-modal="true" aria-labelledby="md-image-modal-title" style="max-width: 520px;" hidden>
+      <div class="modal-header">
+        <div>
+          <span class="modal-tag">STORY ARTWORK</span>
+          <h3 id="md-image-modal-title">Insert Image & Text Wrap</h3>
+        </div>
+        <button type="button" class="modal-close" id="btn-close-md-image-modal" aria-label="Close image modal">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="modal-body" style="padding: 20px 24px; display: flex; flex-direction: column; gap: 14px;">
+        <!-- Upload Image Dropzone -->
+        <div>
+          <label style="font-weight: 600; font-size: 13px; color: var(--ink);">Choose Image File</label>
+          <input type="file" id="md-img-file-input" accept="image/jpeg,image/png,image/webp" style="display: none;" />
+          <div id="md-img-dropzone" style="margin-top: 6px; min-height: 110px; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 2px dashed var(--line); border-radius: var(--radius-sm); padding: 14px; text-align: center; background: var(--chip); transition: border-color 0.15s ease;">
+            <div id="md-img-upload-prompt" style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <span style="font-size: 13px; font-weight: 600; color: var(--ink);">Click to upload image or drag & drop</span>
+              <span style="font-size: 11.5px; color: var(--muted);">JPEG, PNG, or WebP</span>
+            </div>
+            <img id="md-img-preview-tag" src="" alt="Preview" style="max-height: 140px; max-width: 100%; border-radius: 6px; display: none; object-fit: cover;" />
+          </div>
+        </div>
+
+        <div>
+          <label style="font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase;">Or Image Web URL</label>
+          <input type="url" id="md-img-url-input" placeholder="https://images.unsplash.com/... or /uploads/..." style="width: 100%; box-sizing: border-box; margin-top: 4px;" />
+        </div>
+
+        <div>
+          <label style="font-weight: 600; font-size: 13px; color: var(--ink);">Caption / Alt Text</label>
+          <input type="text" id="md-img-alt-input" placeholder="e.g. Traditional Ethiopian coffee ceremony roasting beans" style="width: 100%; box-sizing: border-box; margin-top: 4px;" />
+        </div>
+
+        <!-- Text Wrapping & Alignment -->
+        <div>
+          <span style="display: block; font-size: 12.5px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">Text Wrapping & Image Position</span>
+          <div class="align-choice-grid">
+            <button type="button" class="align-choice-btn active" data-align="left" title="Float Left - Text flows around right side">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="8" height="8" rx="1"/><line x1="14" y1="5" x2="21" y2="5"/><line x1="14" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="3" y1="19" x2="21" y2="19"/></svg>
+              <span>Wrap Right (Float Left)</span>
+            </button>
+            <button type="button" class="align-choice-btn" data-align="center" title="Centered - Sits on own line with text above and below">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="8" rx="1"/><line x1="3" y1="16" x2="21" y2="16"/><line x1="3" y1="20" x2="21" y2="20"/></svg>
+              <span>Centered (Full Width)</span>
+            </button>
+            <button type="button" class="align-choice-btn" data-align="right" title="Float Right - Text flows around left side">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="13" y="4" width="8" height="8" rx="1"/><line x1="3" y1="5" x2="10" y2="5"/><line x1="3" y1="9" x2="10" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="3" y1="19" x2="21" y2="19"/></svg>
+              <span>Wrap Left (Float Right)</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="modal-actions" style="margin-top: 10px;">
+          <div style="flex: 1;"></div>
+          <button type="button" class="btn-secondary" id="btn-cancel-md-image">Cancel</button>
+          <button type="button" class="btn-primary" id="btn-insert-md-image">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Insert Image</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="toast" id="admin-toast" role="status" aria-live="polite"></div>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

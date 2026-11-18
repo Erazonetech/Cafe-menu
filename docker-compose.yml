@@ -1,0 +1,54 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bambis_cafe_app
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DOMAIN=${DOMAIN:-cafe.localhost}
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-cafe_admin}:${POSTGRES_PASSWORD:-cafe_secret}@db:5432/${POSTGRES_DB:-bambis_cafe}
+      - PG_POOL_MAX=${PG_POOL_MAX:-10}
+      - ADMIN_USERNAME=${ADMIN_USERNAME:-admin}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-AdminSecurePassword123!}
+    volumes:
+      - uploads_data:/app/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - cafe_net
+
+  db:
+    image: postgres:16-alpine
+    container_name: bambis_cafe_db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-cafe_admin}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-cafe_secret}
+      - POSTGRES_DB=${POSTGRES_DB:-bambis_cafe}
+    ports:
+      # Map to 5433 on the host by default to prevent collision with any host PostgreSQL on 5432
+      - "${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-cafe_admin} -d $${POSTGRES_DB:-bambis_cafe}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    networks:
+      - cafe_net
+
+volumes:
+  postgres_data:
+  uploads_data:
+
+networks:
+  cafe_net:
+    driver: bridge

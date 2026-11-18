@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guest Reviews & Ratings · Bambis Cafe</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,600..800;1,9..144,600&family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <!-- Fixed Navigation Bar -->
+      <header class="topbar">
+        <button class="menu-toggle" id="menu-button" aria-label="Open navigation menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+
+        <a href="/" class="topbar-brand" id="topbar-brand-link" title="Bambis Cafe Home">
+          <div class="brand-monogram" aria-hidden="true" id="reviews-monogram">BC</div>
+          <span class="brand-name" id="reviews-brand-name">Bambis Cafe</span>
+        </a>
+
+        <div class="topbar-actions">
+          <a href="/#order-bar" class="topbar-cart-btn" id="topbar-cart-btn" aria-label="Shopping order cart" title="View order">
+            <svg class="cart-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-badge-count" id="nav-cart-count">0</span>
+          </a>
+
+          <!-- Vector SVG Theme Toggler -->
+          <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle color theme" title="Toggle color theme">
+            <svg class="theme-icon light-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="theme-icon dark-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+
+          <div class="language-picker">
+            <button class="language-button" id="language-button" aria-label="Choose language" aria-haspopup="listbox" aria-expanded="false">
+              <span id="current-language">EN</span>
+              <span class="language-chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="language-menu" id="language-menu" role="listbox" aria-label="Choose language" hidden>
+              <button class="language-option" type="button" role="option" data-language="en">
+                <span>English</span><span class="language-check" aria-hidden="true">✓</span>
+              </button>
+              <button class="language-option" type="button" role="option" data-language="am">
+                <span>አማርኛ</span><span class="language-check" aria-hidden="true">✓</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- Hero & Overall Rating Summary -->
+        <section class="reviews-hero">
+          <p class="eyebrow accent-text">TESTIMONIALS & RATINGS</p>
+          <h1>Guest Feedback</h1>
+          <p class="reviews-hero-subtitle">Real opinions from our customers on customer service, food quality, and cafe ambiance.</p>
+
+          <div class="rating-summary-grid">
+            <div class="rating-big-score">
+              <div class="rating-big-num" id="stat-avg-score">5.0</div>
+              <div class="rating-stars-wrap" id="stat-avg-stars"></div>
+              <div class="rating-count-label" id="stat-total-count">Based on 3 reviews</div>
+            </div>
+
+            <div class="rating-aspects">
+              <div class="aspect-row">
+                <span>Customer Service & Hospitality</span>
+                <span id="stat-service-score" style="color: var(--accent);">5.0 / 5.0</span>
+              </div>
+              <div class="aspect-row">
+                <span>Food & Coffee Craft</span>
+                <span id="stat-food-score" style="color: var(--accent);">4.9 / 5.0</span>
+              </div>
+              <div class="aspect-row">
+                <span>Recommendation Rate</span>
+                <span id="stat-recommend-rate" style="color: var(--accent);">98%</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Submit Review Card -->
+        <section class="review-form-card">
+          <h2>Share Your Experience</h2>
+          <p>Rate our customer service and food to help us continue crafting great moments.</p>
+
+          <form id="page-review-form" class="review-form-grid">
+            <label class="review-input-label">
+              <span class="label-text">Your Name</span>
+              <input type="text" id="input-review-author" required maxlength="80" placeholder="e.g. Dawit Tadesse" />
+            </label>
+
+            <!-- Overall Rating -->
+            <div class="rating-field-block">
+              <span class="rating-field-label">Overall Experience Rating (1-5 Stars)</span>
+              <div class="star-picker-container" id="picker-overall-stars"></div>
+              <input type="hidden" id="input-overall-rating" value="5" />
+            </div>
+
+            <!-- Focus Target Chips -->
+            <div class="rating-field-block">
+              <span class="rating-field-label">What are you reviewing today?</span>
+              <div class="review-type-selector" id="review-type-selector">
+                <button type="button" class="type-chip active" data-type="both">Both Service & Food</button>
+                <button type="button" class="type-chip" data-type="food">Food & Coffee Quality</button>
+                <button type="button" class="type-chip" data-type="service">Customer Service & Hospitality</button>
+              </div>
+              <input type="hidden" id="input-review-type" value="both" />
+            </div>
+
+            <!-- Granular Rating Sub-bars for Food & Service -->
+            <div class="subratings-grid">
+              <div class="rating-field-block">
+                <span class="rating-field-label">Food & Drink Quality</span>
+                <div class="star-picker-container" id="picker-food-stars"></div>
+                <input type="hidden" id="input-food-rating" value="5" />
+              </div>
+              <div class="rating-field-block">
+                <span class="rating-field-label">Customer Service & Friendliness</span>
+                <div class="star-picker-container" id="picker-service-stars"></div>
+                <input type="hidden" id="input-service-rating" value="5" />
+              </div>
+            </div>
+
+            <!-- Review Text -->
+            <label class="review-input-label">
+              <span class="label-text">Your Review & Comments</span>
+              <textarea id="input-review-comment" required rows="3" maxlength="800" placeholder="Tell us what you loved about our service, our staff, the flavors, or how we can improve..."></textarea>
+            </label>
+
+            <button type="submit" class="btn-primary review-submit-btn">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Submit Guest Review</span>
+            </button>
+          </form>
+        </section>
+
+        <!-- Filters Bar -->
+        <div class="reviews-filter-bar" id="reviews-filter-bar">
+          <button type="button" class="filter-tab-pill active" data-filter="all">All Reviews</button>
+          <button type="button" class="filter-tab-pill" data-filter="5">5 Stars</button>
+          <button type="button" class="filter-tab-pill" data-filter="4">4 Stars</button>
+          <button type="button" class="filter-tab-pill" data-filter="food">Food Focused</button>
+          <button type="button" class="filter-tab-pill" data-filter="service">Service Focused</button>
+        </div>
+
+        <!-- Reviews Grid -->
+        <section class="reviews-cards-list" id="reviews-cards-list"></section>
+
+        <!-- Menu Callout -->
+        <section class="about-cta-bar">
+          <h3>Ready for Fresh Flavors?</h3>
+          <p>Order our chef-crafted burgers, artisan stone-baked pizza, and traditional specialty dishes.</p>
+          <a href="/" class="btn-view-menu-cta" id="btn-view-menu-bottom">
+            <span>Explore Customer Menu</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <p>Made fresh daily at Bambis Cafe · <span id="footer-address">Addis Ababa, Ethiopia</span></p>
+        <div class="footer-links-row">
+          <a href="/" class="footer-link" id="footer-link-menu">Customer Menu</a>
+          <span>·</span>
+          <a href="/about" class="footer-link" id="footer-link-about">Our Story</a>
+          <span>·</span>
+          <span style="color: var(--accent); font-weight: 700;">Guest Reviews</span>
+        </div>
+        <small>© 2026 Bambis Cafe · Handcrafted with care</small>
+      </footer>
+    </div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="category-drawer" id="category-drawer" aria-label="Navigation menu" aria-hidden="true">
+      <div class="drawer-header">
+        <div class="drawer-header-brand">
+          <span class="drawer-brand-monogram">BC</span>
+          <span class="drawer-brand-title">Bambis Cafe</span>
+        </div>
+        <button class="close-button" id="close-drawer" aria-label="Close navigation">✕</button>
+      </div>
+
+      <nav class="drawer-main-nav">
+        <a href="/" class="drawer-page-link" id="drawer-link-menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span>Customer Menu</span>
+        </a>
+        <a href="/about" class="drawer-page-link" id="drawer-link-about">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span>About Us & Story</span>
+        </a>
+        <a href="/reviews" class="drawer-page-link active" id="drawer-link-reviews">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Guest Reviews</span>
+        </a>
+      </nav>
+    </aside>
+    <div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+    <!-- Toast Notifications -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script type="module">
+      import { renderStarRating, UI_ICONS } from "/art.js";
+
+      const siteConfig = window.__SITE_CONFIG__ || {};
+      let reviewsData = window.__REVIEWS_DATA__ || [];
+      const customerUrl = window.__CUSTOMER_URL__ || "/";
+      let activeFilter = "all";
+
+      // Apply theme
+      function getStoredTheme() {
+        try { return localStorage.getItem("bambis-theme"); } catch { return null; }
+      }
+      function applyTheme(theme) {
+        if (!theme) {
+          document.documentElement.removeAttribute("data-theme");
+        } else {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+        try { localStorage.setItem("bambis-theme", theme || ""); } catch {}
+      }
+      const storedTheme = getStoredTheme();
+      if (storedTheme) applyTheme(storedTheme);
+
+      const themeToggle = document.querySelector("#theme-toggle");
+      themeToggle?.addEventListener("click", () => {
+        const current = document.documentElement.getAttribute("data-theme");
+        const isDark = current === "dark" || (!current && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        applyTheme(isDark ? "light" : "dark");
+      });
+
+      // Drawer
+      const menuButton = document.querySelector("#menu-button");
+      const categoryDrawer = document.querySelector("#category-drawer");
+      const drawerBackdrop = document.querySelector("#drawer-backdrop");
+      const closeDrawerBtn = document.querySelector("#close-drawer");
+
+      function openDrawer() {
+        categoryDrawer?.classList.add("open");
+        drawerBackdrop?.classList.add("open");
+        menuButton?.setAttribute("aria-expanded", "true");
+      }
+      function closeDrawer() {
+        categoryDrawer?.classList.remove("open");
+        drawerBackdrop?.classList.remove("open");
+        menuButton?.setAttribute("aria-expanded", "false");
+      }
+      menuButton?.addEventListener("click", openDrawer);
+      closeDrawerBtn?.addEventListener("click", closeDrawer);
+      drawerBackdrop?.addEventListener("click", closeDrawer);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeDrawer();
+      });
+
+      // Brand updates
+      if (siteConfig.brandName) {
+        document.title = `Guest Reviews · ${siteConfig.brandName}`;
+        const monogram = siteConfig.brandName.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
+        document.querySelectorAll("#reviews-monogram, .drawer-brand-monogram").forEach(el => el.textContent = monogram);
+        document.querySelectorAll("#reviews-brand-name, .drawer-brand-title").forEach(el => el.textContent = siteConfig.brandName);
+      }
+      if (siteConfig.address) {
+        const fAddr = document.querySelector("#footer-address");
+        if (fAddr) fAddr.textContent = siteConfig.address;
+      }
+
+      // Dynamic URLs
+      const brandLink = document.querySelector("#topbar-brand-link");
+      const cartLink = document.querySelector("#topbar-cart-btn");
+      const ctaBtn = document.querySelector("#btn-view-menu-bottom");
+      const footerLink = document.querySelector("#footer-link-menu");
+      const drawerMenuLink = document.querySelector("#drawer-link-menu");
+      const customerBase = customerUrl.replace(/\/+$/, "");
+      const menuUrl = `${customerBase}/`;
+      const aboutUrl = `${customerBase}/about`;
+
+      [brandLink, ctaBtn, footerLink, drawerMenuLink].forEach(el => { if (el) el.href = menuUrl; });
+      if (cartLink) {
+        cartLink.href = `${menuUrl}#order-bar`;
+      }
+      const aboutLink = document.querySelector("#drawer-link-about");
+      const footerAbout = document.querySelector("#footer-link-about");
+      [aboutLink, footerAbout].forEach(el => { if (el) el.href = aboutUrl; });
+
+      // Cart count sync
+      try {
+        const storedCart = JSON.parse(localStorage.getItem("bambis-cart") || "[]");
+        const count = storedCart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        const countBadge = document.querySelector("#nav-cart-count");
+        if (countBadge) countBadge.textContent = count;
+      } catch {}
+
+      // Language picker handling
+      const languageButton = document.querySelector("#language-button");
+      const languageMenu = document.querySelector("#language-menu");
+      const languageOptions = document.querySelectorAll(".language-option");
+      const currentLanguageText = document.querySelector("#current-language");
+
+      function getStoredLanguage() {
+        try { return localStorage.getItem("bambis-language") || "en"; } catch { return "en"; }
+      }
+      function setLanguage(lang) {
+        try { localStorage.setItem("bambis-language", lang); } catch {}
+        if (currentLanguageText) currentLanguageText.textContent = lang === "en" ? "EN" : "አማ";
+        document.documentElement.lang = lang;
+        if (languageMenu) languageMenu.hidden = true;
+      }
+      setLanguage(getStoredLanguage());
+
+      languageButton?.addEventListener("click", () => {
+        if (languageMenu) languageMenu.hidden = !languageMenu.hidden;
+      });
+      languageOptions.forEach((opt) => {
+        opt.addEventListener("click", () => setLanguage(opt.dataset.language));
+      });
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".language-picker") && languageMenu) {
+          languageMenu.hidden = true;
+        }
+      });
+
+      // Toast notification helper
+      const toast = document.querySelector("#toast");
+      let toastTimer = null;
+      function showToast(msg) {
+        if (!toast) return;
+        toast.textContent = msg;
+        toast.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove("show"), 3200);
+      }
+
+      // Star Picker Component Builder
+      function initStarPicker(containerId, hiddenInputId, initialVal = 5) {
+        const container = document.querySelector(containerId);
+        const input = document.querySelector(hiddenInputId);
+        if (!container || !input) return;
+
+        function renderStars(activeScore) {
+          let html = "";
+          for (let i = 1; i <= 5; i++) {
+            const isFilled = i <= activeScore;
+            html += `
+              <button type="button" class="star-pick-btn" data-val="${i}" aria-label="${i} stars">
+                ${isFilled 
+                  ? UI_ICONS.starFilled.replace('width="16"', 'width="24"').replace('height="16"', 'height="24"') 
+                  : UI_ICONS.starEmpty.replace('width="16"', 'width="24"').replace('height="16"', 'height="24"')}
+              </button>
+            `;
+          }
+          container.innerHTML = html;
+        }
+
+        renderStars(initialVal);
+        input.value = initialVal;
+
+        container.addEventListener("click", (e) => {
+          const btn = e.target.closest("[data-val]");
+          if (!btn) return;
+          const val = Number(btn.dataset.val);
+          input.value = val;
+          renderStars(val);
+        });
+      }
+
+      initStarPicker("#picker-overall-stars", "#input-overall-rating", 5);
+      initStarPicker("#picker-food-stars", "#input-food-rating", 5);
+      initStarPicker("#picker-service-stars", "#input-service-rating", 5);
+
+      // Review Type selector
+      const typeSelector = document.querySelector("#review-type-selector");
+      const inputType = document.querySelector("#input-review-type");
+      typeSelector?.addEventListener("click", (e) => {
+        const chip = e.target.closest("[data-type]");
+        if (!chip) return;
+        typeSelector.querySelectorAll(".type-chip").forEach(c => c.classList.remove("active"));
+        chip.classList.add("active");
+        inputType.value = chip.dataset.type;
+      });
+
+      // Calculate and display rating stats
+      function updateRatingSummary() {
+        if (!reviewsData.length) {
+          document.querySelector("#stat-avg-score").textContent = "5.0";
+          document.querySelector("#stat-avg-stars").innerHTML = renderStarRating(5, 20);
+          document.querySelector("#stat-total-count").textContent = "No reviews yet";
+          return;
+        }
+
+        const avgScore = (reviewsData.reduce((acc, r) => acc + Number(r.rating || 5), 0) / reviewsData.length).toFixed(1);
+        document.querySelector("#stat-avg-score").textContent = avgScore;
+        document.querySelector("#stat-avg-stars").innerHTML = renderStarRating(Math.round(avgScore), 20);
+        document.querySelector("#stat-total-count").textContent = `Based on ${reviewsData.length} verified ${reviewsData.length === 1 ? "review" : "reviews"}`;
+
+        const serviceReviews = reviewsData.filter(r => r.serviceRating);
+        if (serviceReviews.length) {
+          const avgService = (serviceReviews.reduce((acc, r) => acc + Number(r.serviceRating), 0) / serviceReviews.length).toFixed(1);
+          document.querySelector("#stat-service-score").textContent = `${avgService} / 5.0`;
+        }
+
+        const foodReviews = reviewsData.filter(r => r.foodRating);
+        if (foodReviews.length) {
+          const avgFood = (foodReviews.reduce((acc, r) => acc + Number(r.foodRating), 0) / foodReviews.length).toFixed(1);
+          document.querySelector("#stat-food-score").textContent = `${avgFood} / 5.0`;
+        }
+
+        const positiveCount = reviewsData.filter(r => Number(r.rating) >= 4).length;
+        const recommendRate = Math.round((positiveCount / reviewsData.length) * 100);
+        document.querySelector("#stat-recommend-rate").textContent = `${recommendRate}%`;
+      }
+
+      // Render Review Cards
+      const cardsList = document.querySelector("#reviews-cards-list");
+      function renderReviewsList() {
+        if (!cardsList) return;
+
+        let filtered = [...reviewsData];
+        if (activeFilter === "5") filtered = filtered.filter(r => Number(r.rating) === 5);
+        else if (activeFilter === "4") filtered = filtered.filter(r => Number(r.rating) === 4);
+        else if (activeFilter === "food") filtered = filtered.filter(r => r.foodRating || r.reviewType === "food");
+        else if (activeFilter === "service") filtered = filtered.filter(r => r.serviceRating || r.reviewType === "service");
+
+        if (!filtered.length) {
+          cardsList.innerHTML = `<div style="grid-column: 1 / -1; padding: 40px 20px; text-align: center; color: var(--muted); background: var(--surface); border-radius: var(--radius-md); border: 1px solid var(--line);">No reviews found under this filter.</div>`;
+          return;
+        }
+
+        cardsList.innerHTML = filtered.map((r) => {
+          const dateStr = new Date(r.createdAt || Date.now()).toLocaleDateString(undefined, {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+          });
+
+          let subBadges = "";
+          if (r.serviceRating) {
+            subBadges += `<span class="review-mini-tag">Service: ${r.serviceRating}/5 ★</span>`;
+          }
+          if (r.foodRating) {
+            subBadges += `<span class="review-mini-tag">Food: ${r.foodRating}/5 ★</span>`;
+          }
+          if (r.reviewType && r.reviewType !== "both") {
+            const label = r.reviewType === "food" ? "Food Quality" : "Customer Service";
+            subBadges += `<span class="review-mini-tag" style="background: var(--surface); border: 1px solid var(--line);">${label}</span>`;
+          }
+
+          return `
+            <article class="review-item-card">
+              <div class="review-card-top">
+                <div>
+                  <div class="review-card-author">${escapeHtml(r.authorName)}</div>
+                  <div class="review-card-date">${dateStr}</div>
+                </div>
+                ${renderStarRating(r.rating, 15)}
+              </div>
+              ${subBadges ? `<div class="review-breakdown-tags">${subBadges}</div>` : ""}
+              <p class="review-card-body">${escapeHtml(r.comment)}</p>
+            </article>
+          `;
+        }).join("");
+      }
+
+      function escapeHtml(str = "") {
+        return String(str).replace(/[&<>"']/g, c => ({
+          "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+        }[c]));
+      }
+
+      // Filter clicks
+      const filterBar = document.querySelector("#reviews-filter-bar");
+      filterBar?.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-filter]");
+        if (!btn) return;
+        filterBar.querySelectorAll(".filter-tab-pill").forEach(p => p.classList.remove("active"));
+        btn.classList.add("active");
+        activeFilter = btn.dataset.filter;
+        renderReviewsList();
+      });
+
+      // Submit review form
+      const pageReviewForm = document.querySelector("#page-review-form");
+      pageReviewForm?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const authorName = document.querySelector("#input-review-author").value.trim();
+        const rating = Number(document.querySelector("#input-overall-rating").value) || 5;
+        const foodRating = Number(document.querySelector("#input-food-rating").value) || null;
+        const serviceRating = Number(document.querySelector("#input-service-rating").value) || null;
+        const reviewType = document.querySelector("#input-review-type").value || "both";
+        const comment = document.querySelector("#input-review-comment").value.trim();
+
+        try {
+          const res = await fetch("/api/reviews", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ authorName, rating, foodRating, serviceRating, reviewType, comment })
+          });
+          if (!res.ok) {
+            const errJson = await res.json();
+            throw new Error(errJson.error || "Failed to submit review");
+          }
+          const created = await res.json();
+          reviewsData.unshift(created);
+          updateRatingSummary();
+          renderReviewsList();
+          pageReviewForm.reset();
+          initStarPicker("#picker-overall-stars", "#input-overall-rating", 5);
+          initStarPicker("#picker-food-stars", "#input-food-rating", 5);
+          initStarPicker("#picker-service-stars", "#input-service-rating", 5);
+          showToast("Thank you! Your review has been published.");
+        } catch (err) {
+          showToast(err.message);
+        }
+      });
+
+      // Initialize
+      updateRatingSummary();
+      renderReviewsList();
+    </script>
+  </body>
+</html>

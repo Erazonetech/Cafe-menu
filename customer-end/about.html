@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us · Bambis Cafe</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,600..800;1,9..144,600&family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <!-- Fixed Navigation Bar -->
+      <header class="topbar">
+        <button class="menu-toggle" id="menu-button" aria-label="Open navigation menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+
+        <a href="/" class="topbar-brand" id="topbar-brand-link" title="Bambis Cafe Home">
+          <div class="brand-monogram" aria-hidden="true" id="about-monogram">BC</div>
+          <span class="brand-name" id="about-brand-name">Bambis Cafe</span>
+        </a>
+
+        <div class="topbar-actions">
+          <a href="/#order-bar" class="topbar-cart-btn" id="topbar-cart-btn" aria-label="Shopping order cart" title="View order">
+            <svg class="cart-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-badge-count" id="nav-cart-count">0</span>
+          </a>
+
+          <!-- Vector SVG Theme Toggler -->
+          <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle color theme" title="Toggle color theme">
+            <svg class="theme-icon light-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="theme-icon dark-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+
+          <div class="language-picker">
+            <button class="language-button" id="language-button" aria-label="Choose language" aria-haspopup="listbox" aria-expanded="false">
+              <span id="current-language">EN</span>
+              <span class="language-chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="language-menu" id="language-menu" role="listbox" aria-label="Choose language" hidden>
+              <button class="language-option" type="button" role="option" data-language="en">
+                <span>English</span><span class="language-check" aria-hidden="true">✓</span>
+              </button>
+              <button class="language-option" type="button" role="option" data-language="am">
+                <span>አማርኛ</span><span class="language-check" aria-hidden="true">✓</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- Hero Header -->
+        <section class="about-hero" id="about-hero">
+          <div class="about-hero-image-wrap" id="about-hero-banner" hidden>
+            <img id="about-banner-img" src="" alt="Bambis Cafe" />
+          </div>
+          <div class="about-hero-content">
+            <p class="eyebrow accent-text" id="about-cuisine">AUTHENTIC ETHIOPIAN & CONTEMPORARY DINING</p>
+            <h1 id="about-title">Our Heritage & Craft</h1>
+            <p class="about-tagline" id="about-tagline">Artisanal flavors, crafted with passion.</p>
+          </div>
+        </section>
+
+        <!-- Markdown Rendered Story -->
+        <article class="about-story-card">
+          <div class="about-markdown-content" id="about-content">
+            <!-- RENDERED_MARKDOWN -->
+          </div>
+        </article>
+
+        <!-- Cafe Details & Schedule Grid -->
+        <section class="about-info-section">
+          <!-- Location -->
+          <div class="about-info-card">
+            <h4>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Visit Us</span>
+            </h4>
+            <p id="about-address">Bole Road, Addis Ababa, Ethiopia</p>
+          </div>
+
+          <!-- Contact & WhatsApp -->
+          <div class="about-info-card">
+            <h4>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Get in Touch</span>
+            </h4>
+            <p id="about-phone">+251 99 320 6426</p>
+            <p id="about-email" style="margin-top: 4px;">hello@bambiscafe.com</p>
+          </div>
+
+          <!-- Hours -->
+          <div class="about-info-card" style="grid-column: 1 / -1;">
+            <h4>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Weekly Opening Hours</span>
+            </h4>
+            <div id="about-schedule-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; margin-top: 10px;"></div>
+          </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="about-cta-bar">
+          <h3>Ready to Taste the Craft?</h3>
+          <p>Explore our handcrafted menu with artisanal coffee, stone-baked pizzas, and traditional cuisine.</p>
+          <a href="/" class="btn-view-menu-cta" id="btn-view-menu-bottom">
+            <span>Explore Full Menu</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <p>Made fresh daily at Bambis Cafe · <span id="footer-address">Addis Ababa, Ethiopia</span></p>
+        <div class="footer-links-row">
+          <a href="/" class="footer-link" id="footer-link-menu">Customer Menu</a>
+          <span>·</span>
+          <span style="color: var(--accent); font-weight: 700;">Our Story</span>
+          <span>·</span>
+          <a href="/reviews" class="footer-link" id="footer-link-reviews">Guest Reviews</a>
+        </div>
+        <small>© 2026 Bambis Cafe · Handcrafted with care</small>
+      </footer>
+    </div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="category-drawer" id="category-drawer" aria-label="Navigation menu" aria-hidden="true">
+      <div class="drawer-header">
+        <div class="drawer-header-brand">
+          <span class="drawer-brand-monogram">BC</span>
+          <span class="drawer-brand-title">Bambis Cafe</span>
+        </div>
+        <button class="close-button" id="close-drawer" aria-label="Close navigation">✕</button>
+      </div>
+
+      <nav class="drawer-main-nav">
+        <a href="/" class="drawer-page-link" id="drawer-link-menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span>Customer Menu</span>
+        </a>
+        <a href="/about" class="drawer-page-link active" id="drawer-link-about">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span>About Us & Story</span>
+        </a>
+        <a href="/reviews" class="drawer-page-link" id="drawer-link-reviews">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Guest Reviews</span>
+        </a>
+      </nav>
+    </aside>
+    <div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+    <script type="module">
+      import { renderMarkdown } from "./art.js";
+
+      const siteConfig = window.__SITE_CONFIG__ || {};
+      const customerUrl = window.__CUSTOMER_URL__ || "/";
+
+      // Hydrate rendered markdown with latest art.js parser (ensures responsive images & floats)
+      const aboutContent = document.querySelector("#about-content");
+      if (aboutContent && siteConfig.aboutMarkdown) {
+        aboutContent.innerHTML = renderMarkdown(siteConfig.aboutMarkdown);
+      }
+
+      // Apply theme
+      function getStoredTheme() {
+        try { return localStorage.getItem("bambis-theme"); } catch { return null; }
+      }
+      function applyTheme(theme) {
+        if (!theme) {
+          document.documentElement.removeAttribute("data-theme");
+        } else {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+        try { localStorage.setItem("bambis-theme", theme || ""); } catch {}
+      }
+      const storedTheme = getStoredTheme();
+      if (storedTheme) applyTheme(storedTheme);
+
+      const themeToggle = document.querySelector("#theme-toggle");
+      themeToggle?.addEventListener("click", () => {
+        const current = document.documentElement.getAttribute("data-theme");
+        const isDark = current === "dark" || (!current && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        applyTheme(isDark ? "light" : "dark");
+      });
+
+      // Drawer logic
+      const menuButton = document.querySelector("#menu-button");
+      const categoryDrawer = document.querySelector("#category-drawer");
+      const drawerBackdrop = document.querySelector("#drawer-backdrop");
+      const closeDrawerBtn = document.querySelector("#close-drawer");
+
+      function openDrawer() {
+        categoryDrawer?.classList.add("open");
+        drawerBackdrop?.classList.add("open");
+        menuButton?.setAttribute("aria-expanded", "true");
+      }
+      function closeDrawer() {
+        categoryDrawer?.classList.remove("open");
+        drawerBackdrop?.classList.remove("open");
+        menuButton?.setAttribute("aria-expanded", "false");
+      }
+      menuButton?.addEventListener("click", openDrawer);
+      closeDrawerBtn?.addEventListener("click", closeDrawer);
+      drawerBackdrop?.addEventListener("click", closeDrawer);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeDrawer();
+      });
+
+      // Populate brand info
+      if (siteConfig.brandName) {
+        document.title = `About Us · ${siteConfig.brandName}`;
+        const brandMonogram = siteConfig.brandName.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
+        document.querySelectorAll("#about-monogram, .drawer-brand-monogram").forEach(el => el.textContent = brandMonogram);
+        document.querySelectorAll("#about-brand-name, .drawer-brand-title").forEach(el => el.textContent = siteConfig.brandName);
+      }
+      if (siteConfig.cuisineType) {
+        const cEl = document.querySelector("#about-cuisine");
+        if (cEl) cEl.textContent = siteConfig.cuisineType;
+      }
+      if (siteConfig.tagline) {
+        const tagEl = document.querySelector("#about-tagline");
+        if (tagEl) tagEl.textContent = siteConfig.tagline;
+      }
+      if (siteConfig.address) {
+        const addrEl = document.querySelector("#about-address");
+        if (addrEl) addrEl.textContent = siteConfig.address;
+        const fAddr = document.querySelector("#footer-address");
+        if (fAddr) fAddr.textContent = siteConfig.address;
+      }
+      if (siteConfig.phone) {
+        const phoneEl = document.querySelector("#about-phone");
+        if (phoneEl) phoneEl.textContent = siteConfig.phone;
+      }
+      if (siteConfig.email) {
+        const emailEl = document.querySelector("#about-email");
+        if (emailEl) emailEl.textContent = siteConfig.email;
+      }
+
+      // Banner photo
+      if (siteConfig.bannerUrl) {
+        const bannerWrap = document.querySelector("#about-hero-banner");
+        const bannerImg = document.querySelector("#about-banner-img");
+        if (bannerWrap && bannerImg) {
+          bannerImg.src = siteConfig.bannerUrl;
+          bannerWrap.hidden = false;
+        }
+      }
+
+      // Schedule list
+      const scheduleContainer = document.querySelector("#about-schedule-list");
+      if (scheduleContainer && Array.isArray(siteConfig.schedule) && siteConfig.schedule.length > 0) {
+        function formatTime12h(timeStr) {
+          if (!timeStr) return "";
+          const [h, m] = timeStr.split(":").map(Number);
+          const period = h >= 12 ? "PM" : "AM";
+          const hours12 = h % 12 || 12;
+          return `${hours12}:${String(m).padStart(2, "0")} ${period}`;
+        }
+        let todayDay = "Monday";
+        try {
+          todayDay = new Intl.DateTimeFormat("en-US", {
+            timeZone: siteConfig.timezone || "Africa/Addis_Ababa",
+            weekday: "long"
+          }).format(new Date());
+        } catch {
+          todayDay = new Date().toLocaleDateString("en-US", { weekday: "long" });
+        }
+
+        scheduleContainer.innerHTML = siteConfig.schedule.map((item) => {
+          const isToday = item.day === todayDay;
+          const timeText = item.isOpen
+            ? `${formatTime12h(item.open)} - ${formatTime12h(item.close)}`
+            : "Closed";
+          return `
+            <div class="customer-schedule-row ${isToday ? "today-row" : ""}">
+              <span>${item.day}${isToday ? " (Today)" : ""}</span>
+              <span style="${item.isOpen ? "" : "color:var(--muted);"}">${timeText}</span>
+            </div>
+          `;
+        }).join("");
+      }
+
+      // Brand link & Navigation links
+      const brandLink = document.querySelector("#topbar-brand-link");
+      const cartLink = document.querySelector("#topbar-cart-btn");
+      const ctaBtn = document.querySelector("#btn-view-menu-bottom");
+      const footerLink = document.querySelector("#footer-link-menu");
+      const drawerMenuLink = document.querySelector("#drawer-link-menu");
+      const customerBase = customerUrl.replace(/\/+$/, "");
+      const menuUrl = `${customerBase}/`;
+      const reviewsUrl = `${customerBase}/reviews`;
+
+      [brandLink, ctaBtn, footerLink, drawerMenuLink].forEach((el) => {
+        if (el) el.href = menuUrl;
+      });
+      if (cartLink) {
+        cartLink.href = `${menuUrl}#order-bar`;
+      }
+      const revLink = document.querySelector("#drawer-link-reviews");
+      const footerRev = document.querySelector("#footer-link-reviews");
+      [revLink, footerRev].forEach((el) => {
+        if (el) el.href = reviewsUrl;
+      });
+
+      // Cart count sync
+      try {
+        const storedCart = JSON.parse(localStorage.getItem("bambis-cart") || "[]");
+        const count = storedCart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        const countBadge = document.querySelector("#nav-cart-count");
+        if (countBadge) countBadge.textContent = count;
+      } catch {}
+
+      // Language picker handling
+      const languageButton = document.querySelector("#language-button");
+      const languageMenu = document.querySelector("#language-menu");
+      const languageOptions = document.querySelectorAll(".language-option");
+      const currentLanguageText = document.querySelector("#current-language");
+
+      function getStoredLanguage() {
+        try { return localStorage.getItem("bambis-language") || "en"; } catch { return "en"; }
+      }
+      function setLanguage(lang) {
+        try { localStorage.setItem("bambis-language", lang); } catch {}
+        if (currentLanguageText) currentLanguageText.textContent = lang === "en" ? "EN" : "አማ";
+        document.documentElement.lang = lang;
+        if (languageMenu) languageMenu.hidden = true;
+      }
+      setLanguage(getStoredLanguage());
+
+      languageButton?.addEventListener("click", () => {
+        if (languageMenu) languageMenu.hidden = !languageMenu.hidden;
+      });
+      languageOptions.forEach((opt) => {
+        opt.addEventListener("click", () => setLanguage(opt.dataset.language));
+      });
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".language-picker") && languageMenu) {
+          languageMenu.hidden = true;
+        }
+      });
+    </script>
+  </body>
+</html>
